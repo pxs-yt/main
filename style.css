@@ -14,12 +14,18 @@ body {
     font-size: 75px;
     text-transform: uppercase;
     color: #1e1e1e;
-    animation: fadeIn 1.5s ease-in-out forwards; /* Animation for fade-in */
+    animation: fadeIn 1.5s ease-in-out forwards, fadeOut 1s ease-in-out forwards;
+    animation-delay: 2.5s; /* Start fadeOut after 2.5 seconds */
   }
   
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
   }
   
   /* Responsive Styles */
