@@ -1,40 +1,31 @@
-.loader {
-    width: 100px;
-    height: 100px;
-    background-color: #f3f3f3;
-    position: absolute;
-    top: calc(50vh - 50px);
-    left: calc(50vw - 50px);
-    animation: stripes 1.5s linear infinite;
+body {
+    font-family: 'Reddit Sans', sans-serif;
+    margin: 0;
+    display: flex; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically and horizontally */
+    min-height: 100vh; /* Set body height to viewport height */
+    background-color: #fff; /* Set background color */
   }
   
-  /* Create multiple background states with stripes shifted progressively */
-  .loader::before,
-  .loader::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom right, #000000 25%, transparent 25%, transparent 75%, #000000 75%);
-    transform: rotate(-45deg); /* Adjust rotation for diagonal direction */
-    animation: stripes-shift 1.5s linear infinite;
+  .loading-text {
+    opacity: 0; /* Initially hide the text */
+    font-weight: 900;
+    font-size: 75px;
+    text-transform: uppercase;
+    color: #1e1e1e;
+    animation: fadeIn 1.5s ease-in-out forwards; /* Animation for fade-in */
   }
   
-  .loader::after {
-    background-image: linear-gradient(to bottom right, transparent 25%, #000000 25%, #000000 75%, transparent 75%);
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
   
-  /* Animation for progressive stripe movement */
-  @keyframes stripes-shift {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-25%); } /* Adjust translation for stripe movement */
-  }
-  
-  /* Animation for combining stripe movement and loader rotation */
-  @keyframes stripes {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
+  /* Responsive Styles */
+  @media only screen and (max-width: 768px) {
+    .loading-text {
+      font-size: 50px; /* Adjust font size for smaller screens */
+    }
   }
   
